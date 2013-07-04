@@ -1,0 +1,19 @@
+<VirtualHost *:80> 
+    ServerName vagrant.railsenv.jp
+    ErrorLog /var/log/httpd/railsenv.jp-error_log
+    CustomLog /var/log/httpd/railsenv.jp-access_log combined
+
+    RackEnv test
+
+    DocumentRoot /vagrant
+    <Directory /vagrant>
+        Options +Indexes +FollowSymLinks
+        DirectoryIndex index.html index.htm index.php
+        AllowOverride All 
+        Order Deny,Allow
+        Allow from all 
+        EnableMMAP Off 
+        EnableSendfile Off 
+    </Directory>
+                                                                          
+</VirtualHost>
